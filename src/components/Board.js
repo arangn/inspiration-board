@@ -13,35 +13,27 @@ class Board extends Component {
 
     this.state = {
       cards: [
-        {
-          "text": "Make sure you pet a dog this week!"
-        },
-        {
-          "text": "",
-          "Emoji": "heart_eyes"
-        },
-        {
-          "text": "REST is part of work"
-        },
-        {
-          "text": "Take a nap"
-        },
-        {
-          "emoji": "beer"
-        }
       ]
     };
   }
 
+  componentDidMount() {
+    axios.get('https://inspiration-board.herokuapp.com/boards/Ada-Lovelace/cards')
+    .then((response) => {
+      this.setState({ cards: response.data });
+      console.log(this.state.cards)
+    })
+    .catch((error) => {
+      this.setState({ error: error.message });
+    });
+  }
 
   render() {
-    const cards = this.state.cards;
-
-    const allCards = cards.map((card, i) => {
+    const allCards = this.state.cards.map((card, i) => {
       return <Card
         key={i}
-        text={card.text}
-        emoji={card.emoji} />
+        text={card.card.text}
+        emoji={card.card.emoji} />
     });
 
     return (
@@ -52,7 +44,6 @@ class Board extends Component {
       </div>
     )
   }
-
 }
 
 Board.propTypes = {

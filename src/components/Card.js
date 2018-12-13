@@ -13,9 +13,9 @@ class Card extends Component {
   render() {
     return (
       <div className="card">
-        <ul>
-          <li>{this.props.text}</li>
-          <li>{emoji.getUnicode(`${this.props.emoji}`)}</li>
+        <ul className="card__content">
+          <li className="card__content-text">{this.props.text}</li>
+          <li className="card__content-emoji">{emoji.getUnicode(`${this.props.emoji}`)}</li>
         </ul>
       </div>
     )
