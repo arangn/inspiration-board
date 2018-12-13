@@ -12,13 +12,45 @@ class Board extends Component {
     super();
 
     this.state = {
-      cards: [
-      ]
+      cards: [],
     };
   }
 
+  addBoard = (boardName) => {
+    axios.post('https://inspiration-board.herokuapp.com/boards', boardName)
+      .then((response) => {
+        // We can update the state so we don't need to make another GET request
+        let updatedData = this.state.boards;
+        updatedData.push(boardName);
+        this.setState({boards: updatedData});
+      })
+      .catch((error) => {
+        // Use the same idea we had in our GET request
+        this.setState({ error: error.message });
+      });
+  }
+
+  // deleteCard = (id) => {
+  //   console.log("WOW")
+  //   axios.delete(`https://inspiration-board.herokuapp.com/cards/${id}`, id)
+  //   .then((response) => {
+  //     // We can update the state so we don't need to make another GET request
+  //     let updatedData = this.state.cards;
+  //     updatedData.filter((card) => {
+  //       return id != card.id;
+  //     });
+  //     this.setState({cards: updatedData});
+  //   })
+  //   .catch((error) => {
+  //     // Use the same idea we had in our GET request
+  //     this.setState({ error: error.message });
+  //   });
+  // }
+
+
+
   componentDidMount() {
-    axios.get('https://inspiration-board.herokuapp.com/boards/Ada-Lovelace/cards')
+    axios.get('https://inspiration-board.herokuapp.com/boards/Naheed/cards')
     .then((response) => {
       this.setState({ cards: response.data });
       console.log(this.state.cards)
@@ -32,8 +64,11 @@ class Board extends Component {
     const allCards = this.state.cards.map((card, i) => {
       return <Card
         key={i}
+        id={card.card.id}
         text={card.card.text}
-        emoji={card.card.emoji} />
+        emoji={card.card.emoji}
+        cards={this.state.cards}
+        />
     });
 
     return (
@@ -45,6 +80,8 @@ class Board extends Component {
     )
   }
 }
+// deleteCardCallback={this.deleteCard}
+// deleteCardCallback={this.onDelete.bind(this)}
 
 Board.propTypes = {
 
