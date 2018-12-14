@@ -18,6 +18,12 @@ const Card = (props) => {
   //   this.props.deleteCardCallback(id)
   // }
 
+  // addCard = () => {
+  //
+  // }
+
+
+
 
 //   <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
 // <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>

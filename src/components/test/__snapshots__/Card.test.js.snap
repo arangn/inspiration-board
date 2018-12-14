@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card that it matches an existing snapshot 1`] = `
+<div
+  className="card"
+>
+  <ul
+    className="card__content"
+  >
+    <li
+      className="card__content-text"
+    >
+      test name
+    </li>
+    <li
+      className="card__content-emoji"
+    />
+    <div>
+      <button
+        className="card__delete"
+        onClick={[Function]}
+      >
+        Delete Card
+      </button>
+    </div>
+  </ul>
+</div>
+`;
