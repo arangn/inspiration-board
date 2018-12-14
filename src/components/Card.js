@@ -4,11 +4,13 @@ import emoji from 'emoji-dictionary';
 
 import './Card.css';
 
-class Card extends Component {
+// class Card extends Component {
+const Card = (props) => {
 
-  constructor(props) {
-    super(props);
-  }
+
+  // constructor(props) {
+  //   super(props);
+  // }
 
   // onDeleteClick = (id, event) => {
   //   console.log('working?')
@@ -21,16 +23,16 @@ class Card extends Component {
 // <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
 
 
-  render() {
+  // render() {
     return (
       <div className="card">
         <ul className="card__content">
-          <li className="card__content-text">{this.props.text}</li>
-          <li className="card__content-emoji">{emoji.getUnicode(`${this.props.emoji}`)}</li>
+          <li className="card__content-text">{props.text}</li>
+          <li className="card__content-emoji">{emoji.getUnicode(`${props.emoji}`)}</li>
             <div>
               <button
                 className="card__delete"
-                >
+                onClick={() => props.deleteCardCallback(props.id)}>
                 Delete Card
               </button>
             </div>
@@ -38,16 +40,15 @@ class Card extends Component {
       </div>
     )
   }
-}
+// }
 // onClick={(e) => this.onDeleteClick(this.props.id, e)}
 // onClick={this.props.deleteCardCallback(this.props.id)}
 
 Card.propTypes = {
-  i: PropTypes.integer,
   id: PropTypes.integer,
   text: PropTypes.string,
   emoji: PropTypes.string,
-  cards: PropTypes.array
+  deleteCardCallback: PropTypes.function
 };
 
 export default Card;
