@@ -53,12 +53,11 @@ class NewCardForm extends Component {
     //need to use element instead of emoji because wont recognize emoji.getUnicode as function
 
     return (
-      <div className="new-card-form">
-        <h3 className="new-card-form__header">Make a new card</h3>
+      <div>
         <form
-          className="new-card-form__form"
+          className="new-card-form"
           onSubmit={this.onFormSubmit}>
-          <div>
+          <div className="new-card-form__form">
             <label
               className="new-card-form__form-label"
               htmlFor="Text">
@@ -70,7 +69,7 @@ class NewCardForm extends Component {
               onChange={this.onInputChange}
               className="new-card-form__form-textarea"/>
           </div>
-          <div>
+          <div className="new-card-form__form">
             <label
               className="new-card-form__form-label"
               htmlFor="Emoji">
@@ -80,8 +79,8 @@ class NewCardForm extends Component {
               {allEmojis}
             </select>
           </div>
-          <div >
-            <input type="submit" value="Submit Card" className="new-card-form__form-button" />
+          <div className="new-card-form__form">
+            <input type="submit" value="Post" className="new-card-form__form-button" />
           </div>
         </form>
       </div>

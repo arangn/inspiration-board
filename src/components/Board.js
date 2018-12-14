@@ -77,6 +77,7 @@ class Board extends Component {
     return (
       <div>
         <div>
+          <h3 className="new-card-form__header">Make a new card</h3>
           <NewCardForm cards={this.state.cards} addCardCallback={this.addCard}/>
         </div>
         <ul>
