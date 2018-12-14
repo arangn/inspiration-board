@@ -19,9 +19,14 @@ class Board extends Component {
   addCard = (text, emoji) => {
     axios.post(`https://inspiration-board.herokuapp.com/boards/Naheed/cards?text=${text}&emoji=${emoji}`)
       .then((response) => {
-        let updatedData = this.state.cards;
-        updatedData.push();
-        this.setState({cards: updatedData});
+        axios.get('https://inspiration-board.herokuapp.com/boards/Naheed/cards')
+        .then((response) => {
+          this.setState({ cards: response.data });
+        })
+
+        // let updatedData = this.state.cards;
+        // updatedData.push();
+        // this.setState({cards: updatedData});
       })
       .catch((error) => {
         this.setState({ error: error.message });

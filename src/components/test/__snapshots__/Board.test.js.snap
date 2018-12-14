@@ -38,88 +38,92 @@ exports[`Board successfully deep mounts 1`] = `
         >
           <h3
             className="new-card-form__header"
-          />
+          >
+            Make a new card
+          </h3>
           <form
             className="new-card-form__form"
             onSubmit={[Function]}
           >
-            <div
-              className="PlayerSubmissionForm__poem-inputs"
-            >
-              <div>
-                <label
-                  className="new-card-form__form-label"
-                  htmlFor="Text"
-                />
-                <input
-                  className="new-card-form__form-textarea"
-                  name="text"
-                  onChange={[Function]}
-                  placeholder="text"
+            <div>
+              <label
+                className="new-card-form__form-label"
+                htmlFor="Text"
+              />
+              <input
+                className="new-card-form__form-textarea"
+                name="text"
+                onChange={[Function]}
+                placeholder="Inspiration"
+                value=""
+              />
+            </div>
+            <div>
+              <label
+                className="new-card-form__form-label"
+                htmlFor="Emoji"
+              />
+              <select
+                className="new-card-form__form-select"
+                name="emoji"
+                onChange={[Function]}
+              >
+                <option
+                  disabled={true}
+                  hidden={true}
+                  selected={true}
+                  value=""
+                >
+                  Emoji
+                </option>
+                <option
+                  key="0"
                   value=""
                 />
-              </div>
-              <div>
-                <label
-                  className="new-card-form__form-label"
-                  htmlFor="Emoji"
-                />
-                <select
-                  className="new-card-form__form-select"
-                  name="emoji"
-                  onChange={[Function]}
+                <option
+                  key="1"
+                  value="heart_eyes"
                 >
-                  <option
-                    key="0"
-                    value=""
-                  />
-                  <option
-                    key="1"
-                    value="heart_eyes"
-                  >
-                    😍
-                  </option>
-                  <option
-                    key="2"
-                    value="beer"
-                  >
-                    🍺
-                  </option>
-                  <option
-                    key="3"
-                    value="clap"
-                  >
-                    👏
-                  </option>
-                  <option
-                    key="4"
-                    value="sparkling_heart"
-                  >
-                    💖
-                  </option>
-                  <option
-                    key="5"
-                    value="heart_eyes_cat"
-                  >
-                    😻
-                  </option>
-                  <option
-                    key="6"
-                    value="dog"
-                  >
-                    🐶
-                  </option>
-                </select>
-              </div>
-              <div
+                  😍
+                </option>
+                <option
+                  key="2"
+                  value="beer"
+                >
+                  🍺
+                </option>
+                <option
+                  key="3"
+                  value="clap"
+                >
+                  👏
+                </option>
+                <option
+                  key="4"
+                  value="sparkling_heart"
+                >
+                  💖
+                </option>
+                <option
+                  key="5"
+                  value="heart_eyes_cat"
+                >
+                  😻
+                </option>
+                <option
+                  key="6"
+                  value="dog"
+                >
+                  🐶
+                </option>
+              </select>
+            </div>
+            <div>
+              <input
                 className="new-card-form__form-button"
-              >
-                <input
-                  className="new-card-form__form-button"
-                  type="submit"
-                  value="Submit Card"
-                />
-              </div>
+                type="submit"
+                value="Submit Card"
+              />
             </div>
           </form>
         </div>
