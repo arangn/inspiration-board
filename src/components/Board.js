@@ -16,42 +16,11 @@ class Board extends Component {
     };
   }
 
-  addCard = (text, emoji) => {
-    axios.post(`https://inspiration-board.herokuapp.com/boards/Naheed/cards?text=${text}&emoji=${emoji}`)
-      .then((response) => {
-        axios.get('https://inspiration-board.herokuapp.com/boards/Naheed/cards')
-        .then((response) => {
-          this.setState({ cards: response.data });
-        })
-
-        // let updatedData = this.state.cards;
-        // updatedData.push();
-        // this.setState({cards: updatedData});
-      })
-      .catch((error) => {
-        this.setState({ error: error.message });
-      });
-  }
-
-  deleteCard = (id) => {
-    axios.delete(`https://inspiration-board.herokuapp.com/cards/${id}`, id)
-    .then((response) => {
-      axios.get('https://inspiration-board.herokuapp.com/boards/Naheed/cards')
-      .then((response) => {
-        this.setState({ cards: response.data });
-      })
-      // let updatedData = this.state.cards;
-      // updatedData.filter((card) => {
-      //   return id != card.id;
-      // });
-      // this.setState({cards: updatedData});
-    })
-    .catch((error) => {
-      this.setState({ error: error.message });
-    });
-  }
-
   componentDidMount() {
+    this.getCards()
+  }
+
+  getCards = () => {
     axios.get('https://inspiration-board.herokuapp.com/boards/Naheed/cards')
     .then((response) => {
       this.setState({ cards: response.data });
@@ -60,6 +29,21 @@ class Board extends Component {
       this.setState({ error: error.message });
     });
   }
+
+  addCard = (text, emoji) => {
+    axios.post(`https://inspiration-board.herokuapp.com/boards/Naheed/cards?text=${text}&emoji=${emoji}`)
+    .then((response) => {
+      this.getCards()
+    });
+  }
+
+  deleteCard = (id) => {
+    axios.delete(`https://inspiration-board.herokuapp.com/cards/${id}`, id)
+    .then((response) => {
+      this.getCards()
+    });
+  }
+
 
   render() {
     const allCards = this.state.cards.map((card) => {
@@ -73,14 +57,12 @@ class Board extends Component {
     });
 
     return (
-      <div>
-        <div>
-          <h3 className="new-card-form__header">Make a new card</h3>
-          <NewCardForm cards={this.state.cards} addCardCallback={this.addCard}/>
-        </div>
-        <ul>
+      <div >
+        <h3 className="new-card-form__header">Make a new card</h3>
+        <NewCardForm cards={this.state.cards} addCardCallback={this.addCard}/>
+        <div className="board">
           {allCards}
-        </ul>
+        </div>
       </div>
     )
   }
