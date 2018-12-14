@@ -36,7 +36,6 @@ class Board extends Component {
   deleteCard = (id) => {
     axios.delete(`https://inspiration-board.herokuapp.com/cards/${id}`, id)
     .then((response) => {
-      // We can update the state so we don't need to make another GET request
       axios.get('https://inspiration-board.herokuapp.com/boards/Naheed/cards')
       .then((response) => {
         this.setState({ cards: response.data });
@@ -48,7 +47,6 @@ class Board extends Component {
       // this.setState({cards: updatedData});
     })
     .catch((error) => {
-      // Use the same idea we had in our GET request
       this.setState({ error: error.message });
     });
   }
@@ -87,8 +85,6 @@ class Board extends Component {
     )
   }
 }
-// deleteCardCallback={this.deleteCard}
-// deleteCardCallback={this.onDelete.bind(this)}
 
 Board.propTypes = {
 

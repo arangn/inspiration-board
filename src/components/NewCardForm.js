@@ -5,7 +5,6 @@ import './NewCardForm.css';
 
 const EMOJI_LIST = ["", "heart_eyes", "beer", "clap", "sparkling_heart", "heart_eyes_cat", "dog"]
 
-
 class NewCardForm extends Component {
 
   constructor(props) {
@@ -15,7 +14,6 @@ class NewCardForm extends Component {
       emoji: ""
     }
   }
-
 
   onInputChange = (event) => {
     console.log("on input change")
@@ -38,7 +36,6 @@ class NewCardForm extends Component {
       text: "",
       emoji: ""
     });
-
   }
 
   render () {
@@ -84,9 +81,8 @@ class NewCardForm extends Component {
           </div>
         </form>
       </div>
-    )
+    );
   }
-
 }
 
 NewCardForm.propTypes = {

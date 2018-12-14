@@ -12,23 +12,6 @@ const Card = (props) => {
   //   super(props);
   // }
 
-  // onDeleteClick = (id, event) => {
-  //   console.log('working?')
-  //   event.preventDefault();
-  //   this.props.deleteCardCallback(id)
-  // }
-
-  // addCard = () => {
-  //
-  // }
-
-
-
-
-//   <button onClick={(e) => this.deleteRow(id, e)}>Delete Row</button>
-// <button onClick={this.deleteRow.bind(this, id)}>Delete Row</button>
-
-
   // render() {
     return (
       <div className="card">
@@ -46,9 +29,6 @@ const Card = (props) => {
       </div>
     )
   }
-// }
-// onClick={(e) => this.onDeleteClick(this.props.id, e)}
-// onClick={this.props.deleteCardCallback(this.props.id)}
 
 Card.propTypes = {
   id: PropTypes.integer,
